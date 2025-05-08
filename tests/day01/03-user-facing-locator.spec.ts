@@ -1,4 +1,4 @@
-import { test,expect } from '@playwright/test';
+import { test } from '@playwright/test';
 
 test('User Facing Locators', async ({ page }) => {
     await page.goto("https://practicesoftwaretesting.com/#/");
