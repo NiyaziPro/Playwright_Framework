@@ -30,12 +30,12 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on',
-    viewport: { width: 1280, height: 720 },
+    /*viewport: { width: 1280, height: 720 },
     actionTimeout: 0,
     testIdAttribute: "data-test",
      screenshot: 'on', 
      headless: false, // Ensure tests are run in non-headless mode
-    browserName: 'chromium', // Or 'firefox' or 'webkit'// Capture screenshots
+    browserName: 'chromium', // Or 'firefox' or 'webkit'// Capture screenshots */
   },
 
   /* Configure projects for major browsers */

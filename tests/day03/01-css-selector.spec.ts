@@ -3,6 +3,9 @@ import { faker } from '@faker-js/faker';
 
 test('CSS Selector Locators', async ({ page }) => {
     await page.goto('https://practicesoftwaretesting.com/auth/register');
+     // Wait for the page to load
+    await page.waitForLoadState('networkidle');
+
    // await page.locator('#first_name').fill(faker.person.firstName());
    // Tag Name Selector
     await page.locator('input').first().fill(faker.person.firstName());
