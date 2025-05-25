@@ -1,5 +1,7 @@
 import { test, expect } from "@playwright/test";
 
+// Child Locator - https://playwright.dev/docs/locators#filter-by-childdescendant
+
 test("Child locator-1", async ({ page }) => {
   // Navigate to the Practice Software Testing website
   await page.goto("https://www.practicesoftwaretesting.com/");
