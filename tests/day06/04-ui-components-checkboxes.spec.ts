@@ -47,4 +47,23 @@ test("UI Components - Checkboxes", async ({ page }) => {
   // Assert that the Water checkbox is not unchecked and the Milk checkbox is not unchecked
   expect(await checkboxWater.isChecked()).not.toBeFalsy();
   expect(await checkboxMilk.isChecked()).not.toBeFalsy();
+
+  // Assign all checkboxes to a variable and iterate through them
+  let allCheckboxes = page.getByRole("checkbox");
+
+  // Check all checkboxes and assert that they are checked
+  // Note: This will check all checkboxes on the page, so be careful if there are many checkboxes
+  for (const box of await allCheckboxes.all()) {
+    await box.check(); // Check all checkboxes - for unchecking use box.uncheck()
+    // Assert that the checkbox is checked
+    expect(await box.isChecked()).toBeTruthy();
+
+    // Uncheck all checkboxes and assert that they are unchecked
+
+    for (const box of await allCheckboxes.all()) {
+      await box.uncheck(); // Uncheck all checkboxes
+      // Assert that the checkbox is unchecked
+      expect(await box.isChecked()).toBeFalsy();
+    }
+  }
 });
