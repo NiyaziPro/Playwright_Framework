@@ -16,5 +16,4 @@ test("Tooltips - Hover over element", async ({ page }) => {
     .getByRole("button", { name: "Tooltip on top" })
     .textContent();
   expect(tooltipText).toEqual("Tooltip on top");
-  
 });
