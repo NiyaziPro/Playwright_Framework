@@ -1,3 +1,4 @@
+import { tr } from "@faker-js/faker";
 import { test, expect } from "@playwright/test";
 
 // Playwright Drag and Drop - Drag and drop elements on a page
@@ -52,4 +53,46 @@ test("Drag and Drop - Drag and drop elements on a page with offset", async ({
   await photo4.dragTo(trash);
   // Wait for the fourth photo to be dropped
   await page.waitForTimeout(2000); // Adjust the timeout as needed
+});
+
+test("Mouse hover - down - up", async ({ page }) => {
+  // Navigate to the practice automation page
+  await page.goto("https://www.globalsqa.com/demo-site/draganddrop/");
+  // Wait for the page to load
+  await page.waitForLoadState("networkidle");
+  // Cookie consent handling
+  await page.getByRole("button", { name: "Consent" }).click();
+
+  // Switch to the frame that contains the drag and drop elements
+  const frame = page.frameLocator(".demo-frame.lazyloaded");
+
+  const photo1 = frame.getByAltText("The peaks of High Tatras");
+  const photo2 = frame.getByAltText("The chalet at the Green mountain lake");
+  const photo3 = frame.getByAltText("Planning the ascent");
+  const photo4 = frame.getByAltText("On top of Kozi kopka");
+  const trash = frame.locator("#trash");
+
+  // Perform drag and drop action with Mouse hover
+  await photo1.hover(); // Hover over the first photo
+  await page.mouse.down(); // Press the mouse button down on the photo
+  await trash.hover(); // Hover over the trash bin
+  await page.mouse.up(); // Release the mouse button to drop the photo
+  await page.waitForTimeout(2000); // Wait for the action to complete
+
+  await photo2.hover(); // Hover over the second photo
+  await page.mouse.down(); // Press the mouse button down on the photo
+  await trash.hover(); // Hover over the trash bin
+  await page.mouse.up(); // Release the mouse button to drop the photo
+  await page.waitForTimeout(2000); // Wait for the action to complete
+});
+
+test("Drag and Drop - Drag and drop elements on a page ", async ({ page }) => {
+  // Navigate to the practice automation page
+  await page.goto("https://practice.expandtesting.com/drag-and-drop");
+
+  // Wait for the page to load
+  await page.waitForLoadState("networkidle");
+
+  // Get the source and target elements for drag and drop
+  await page.dragAndDrop("#column-b", "#column-a");
 });
