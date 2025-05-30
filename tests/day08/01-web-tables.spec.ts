@@ -56,3 +56,42 @@ test("Web Tables 3", async ({ page }) => {
   expect(isUnchecked).toBe(false); // Assert that the checkbox is unchecked
   console.log("Checkbox is unchecked:", isUnchecked); // Log the result
 });
+
+test("Web Tables 4", async ({ page }) => {
+  // Navigate to the letcode practice page
+  await page.goto("https://letcode.in/table");
+
+  // Locate the row with the text "Gingerbread"
+  const row = page
+    .getByRole("row", { name: "16" })
+    .filter({ hasText: "Gingerbread" });
+  console.log("Row count:", await row.count()); // Log the row count
+
+  const targetColumn = row.locator("td").nth(3); // Get the last cell in the row
+  console.log("Target column text:", await targetColumn.innerText()); // Log the text content of the target cell
+  // Verify the target text
+  expect(await targetColumn.innerText()).toBe("49"); // Adjust the expected value as needed
+});
+
+test("Web Tables 5", async ({ page }) => {
+  // Navigate to the letcode practice page
+  await page.goto("https://letcode.in/advancedtable");
+
+  // universities
+  const universities = ['American','Wales','Khan'];
+    // Locate the Search input field
+  const searchInput = page.getByLabel("Search");
+  // Iterate through each university and perform the search
+  for (const university of universities) {
+    await searchInput.fill(university);
+    await searchInput.press("Enter");
+    // Add assertions or further actions as needed
+    const row = page.getByRole("row", { name: university });
+    const cell = row.locator("td").nth(1); // Get the second cell in the row
+    const cellText = await cell.innerText(); // Get the text content of the target cell
+    console.log(`University: ${university}, Cell Text: ${cellText}`); // Log the university and cell text
+    // Verify the cell text
+    expect(cellText).toContain(university); // Adjust the expected value as needed
+  } 
+
+});
