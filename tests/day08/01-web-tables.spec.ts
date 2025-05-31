@@ -78,8 +78,8 @@ test("Web Tables 5", async ({ page }) => {
   await page.goto("https://letcode.in/advancedtable");
 
   // universities
-  const universities = ['American','Wales','Khan'];
-    // Locate the Search input field
+  const universities = ["American", "Wales", "Khan"];
+  // Locate the Search input field
   const searchInput = page.getByLabel("Search");
   // Iterate through each university and perform the search
   for (const university of universities) {
@@ -92,6 +92,5 @@ test("Web Tables 5", async ({ page }) => {
     console.log(`University: ${university}, Cell Text: ${cellText}`); // Log the university and cell text
     // Verify the cell text
     expect(cellText).toContain(university); // Adjust the expected value as needed
-  } 
-
+  }
 });
