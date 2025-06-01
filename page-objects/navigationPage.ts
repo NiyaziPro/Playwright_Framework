@@ -1,3 +1,4 @@
+import { th } from "@faker-js/faker";
 import { Page, Locator } from "playwright";
 
 // NavigationPage.ts
@@ -14,9 +15,9 @@ class NavigationPage {
 
   constructor(page: Page) {
     this.page = page;
-    this.signInMenuItem = this.page.getByRole("link", { name: "Sign In" });
-    this.contactMenuItem = this.page.getByRole("link", { name: "Contact" });
-    this.categoriesMenuItem = this.page.getByRole("link", {
+    this.signInMenuItem = this.page.getByTestId("nav-sign-in");
+    this.contactMenuItem = this.page.getByTestId("nav-contact");
+    this.categoriesMenuItem = this.page.getByRole("button", {
       name: "Categories",
     });
     this.handToolsMenuItem = this.page.getByRole("link", {
@@ -27,6 +28,8 @@ class NavigationPage {
   // This method clicks on the Sign In menu item to navigate to the sign-in page
   async openSignInPage() {
     this.signInMenuItem.click();
+    // Wait for the navigation to complete
+    await this.page.waitForLoadState("networkidle");
   }
   // This method clicks on the Contact menu item to navigate to the contact page
   async openContactPage() {
@@ -38,6 +41,7 @@ class NavigationPage {
   }
   // This method clicks on the Hand Tools menu item to navigate to the hand tools page
   async openHandToolsPage() {
+    this.categoriesMenuItem.click();
     this.handToolsMenuItem.click();
   }
 }

@@ -8,11 +8,13 @@ import NavigationPage from '../../page-objects/navigationPage';
 // Before each test, we navigate to the Practice Software Testing website
 test.beforeEach(async ({ page }) => {
   await page.goto('https://practicesoftwaretesting.com/#/');
+    await page.waitForLoadState('networkidle');
 });
 
 // Test to open the sign-in page using the NavigationPage class
 test('Navigation Test', async ({ page }) => {
-  const navigationPage = new NavigationPage(page);
-  await navigationPage.openSignInPage();
-  
+  const navigateTo = new NavigationPage(page);
+  await navigateTo.openSignInPage();
+    await navigateTo.openContactPage();
+  await navigateTo.openHandToolsPage();
 });
