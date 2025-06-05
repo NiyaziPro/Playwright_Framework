@@ -196,17 +196,27 @@ test.describe("OrangeHRM Personal Details and Emergency Contact Management", () 
     const jobTitle = faker.person.jobTitle();
     await page.locator(".oxd-form .oxd-input").fill(jobTitle);
     console.log(jobTitle);
-    await page.getByRole('button',{name:'Save'}).click();
+    await page.getByRole("button", { name: "Save" }).click();
     const successMessage = page.getByText("Successfully Saved");
-      await expect(successMessage).toBeVisible();
+    await expect(successMessage).toBeVisible();
 
-      // Wait for page loading
-      
+    // Wait for page loading
+    await expect(addButton).toBeVisible();
+    await expect(addButton).toBeEnabled();
+    await addButton.click();
 
     // Negative Scenario
-     await page.locator(".oxd-form .oxd-input").fill(jobTitle);
-     await expect(page.getByText('Already exists')).toBeVisible();
-     await page.getByRole('button',{name:'Cancel'}).click();
+    await page.locator(".oxd-form .oxd-input").fill(jobTitle);
+    await expect(page.getByText("Already exists")).toBeVisible();
+    await page.getByRole("button", { name: "Cancel" }).click();
 
+    // Delete Buttons
+    await page
+      .getByRole("row")
+      .filter({ hasText: jobTitle })
+      .locator(".bi-trash")
+      .click();
+    await page.getByRole("button", { name: "Yes, Delete" }).click();
+    await expect(page.getByText("Successfully Deleted")).toBeVisible();
   });
 });
