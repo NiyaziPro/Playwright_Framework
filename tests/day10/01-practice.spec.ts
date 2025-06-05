@@ -6,8 +6,7 @@ import { faker } from "@faker-js/faker";
 // This test suite covers the login process, personal details update, and emergency contact management in OrangeHRM.
 
 test.describe("OrangeHRM Personal Details and Emergency Contact Management", () => {
-  
-    // Before each test, navigate to the OrangeHRM login page
+  // Before each test, navigate to the OrangeHRM login page
 
   test.beforeEach(async ({ page }) => {
     // Navigate to the OrangeHRM login page
@@ -53,18 +52,20 @@ test.describe("OrangeHRM Personal Details and Emergency Contact Management", () 
     // Logout process
     const userMenu = page.locator(".oxd-userdropdown-name");
     await userMenu.click();
-    const logoutButton = page.locator(".oxd-userdropdown-link").filter({ hasText: "Logout" });
+    const logoutButton = page
+      .locator(".oxd-userdropdown-link")
+      .filter({ hasText: "Logout" });
     await logoutButton.click();
     // Verify the user is logged out by checking the login form is visible again
     await expect(page.getByRole("heading")).toHaveText("Login");
   });
 
   test("Personal Details Test", async ({ page }) => {
-
     // Verify the "Personal Details" heading is visible
     const personalDetailsHeading = page.getByRole("heading", {
       name: "Personal Details",
     });
+
     await expect(personalDetailsHeading).toBeVisible();
 
     // Wait to ensure the page is fully loaded
@@ -164,6 +165,48 @@ test.describe("OrangeHRM Personal Details and Emergency Contact Management", () 
     const deleteSuccessMessage = page.getByText("Successfully Deleted");
     await expect(deleteSuccessMessage).toBeVisible();
     console.log("Success Message:", await deleteSuccessMessage.textContent());
+  });
+
+  test("Adding Job Title Test", async ({ page }) => {
+    // Click to the Admin link
+    await page.getByRole("link", { name: "Admin" }).click();
+
+    // Verify the Page Title
+    await expect(page.locator(".oxd-topbar-header-breadcrumb")).toHaveText(
+      "AdminUser Management"
+    );
+
+    // Job Menu
+    await page.locator(".oxd-topbar-body-nav-tab-item").nth(1).click();
+    await page.getByRole("menuitem", { name: "Job Titles" }).click();
+    await expect(page.locator(".oxd-topbar-header-breadcrumb")).toHaveText(
+      "AdminJob"
+    );
+
+    // Add button
+    const addButton = page.getByRole("button", { name: "Add" });
+    await expect(addButton).toBeVisible();
+    await expect(addButton).toBeEnabled();
+    await addButton.click();
+
+    // Verify  the header is "Add Job Title"
+    await expect(page.getByText("Add Job Title")).toBeVisible();
+
+    // Adding Job Title
+    const jobTitle = faker.person.jobTitle();
+    await page.locator(".oxd-form .oxd-input").fill(jobTitle);
+    console.log(jobTitle);
+    await page.getByRole('button',{name:'Save'}).click();
+    const successMessage = page.getByText("Successfully Saved");
+      await expect(successMessage).toBeVisible();
+
+      // Wait for page loading
+      
+
+    // Negative Scenario
+     await page.locator(".oxd-form .oxd-input").fill(jobTitle);
+     await expect(page.getByText('Already exists')).toBeVisible();
+     await page.getByRole('button',{name:'Cancel'}).click();
 
   });
 });
