@@ -22,9 +22,22 @@ test("Navigation Test", async ({ page }) => {
   await navigateTo.openPowerToolsPage();
 });
 
+test('Method with Parameter Test', async ({ page }) => {
+  const navigateTo = new NavigationPage(page);
+  await navigateTo.openCategoriesMenuItem('Special Tools'); 
+});
+
+
 test('Login Test', async ({ page }) => {
   const login = new SignInPage(page);
   const navigateTo = new NavigationPage(page);
   await navigateTo.openSignInPage();
   await login.performLogin();
+});
+
+test('Login Test 2', async ({ page }) => {
+  const login = new SignInPage(page);
+  const navigateTo = new NavigationPage(page);
+  await navigateTo.openSignInPage();
+  await login.performLoginWithData('customer@practicesoftwaretesting.com','welcome01','Login');
 });

@@ -14,4 +14,20 @@ export class SignInPage {
     await this.page.getByPlaceholder("Your password").fill("welcome01");
     await this.page.getByRole("button", { name: "Login" }).click();
   }
+
+  /**
+   * 
+   * @param email A registered user email must be entered
+   * @param password A registered user password must be entered
+   * @param optionText The name of the button to be clicked on the page must be entered
+   */
+  async performLoginWithData(
+    email: string,
+    password: string,
+    optionText: string
+  ) {
+    await this.page.getByPlaceholder("Your email").fill(email);
+    await this.page.getByPlaceholder("Your password").fill(password);
+    await this.page.getByRole("button", { name: optionText }).click();
+  }
 }

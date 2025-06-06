@@ -51,4 +51,10 @@ export class NavigationPage {
     await this.categoriesMenuItem.click();
     await this.powerToolsMenuItem.click();
   }
+
+  async openCategoriesMenuItem(optionText:string){
+    await this.categoriesMenuItem.click();
+    const menuItem = this.page.getByRole("link", { name: optionText });
+    await menuItem.click();
+  }
 }
