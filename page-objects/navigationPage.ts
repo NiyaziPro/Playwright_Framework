@@ -31,8 +31,6 @@ export class NavigationPage {
   // This method clicks on the Sign In menu item to navigate to the sign-in page
   async openSignInPage() {
     await this.signInMenuItem.click();
-    // Wait for the navigation to complete
-    await this.page.waitForLoadState("networkidle");
   }
   // This method clicks on the Contact menu item to navigate to the contact page
   async openContactPage() {
@@ -52,7 +50,7 @@ export class NavigationPage {
     await this.powerToolsMenuItem.click();
   }
 
-  async openCategoriesMenuItem(optionText:string){
+  async openCategoriesMenuItem(optionText: string) {
     await this.categoriesMenuItem.click();
     const menuItem = this.page.getByRole("link", { name: optionText });
     await menuItem.click();
