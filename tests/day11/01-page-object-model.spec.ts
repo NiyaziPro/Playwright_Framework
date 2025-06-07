@@ -41,8 +41,7 @@ test.describe("Page Object Model", () => {
     await navigateTo.openSignInPage();
     await login.performLoginWithData(
       "customer@practicesoftwaretesting.com",
-      "welcome01",
-      "Login"
+      "welcome01"
     );
   });
 

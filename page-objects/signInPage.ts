@@ -24,12 +24,14 @@ export class SignInPage extends HelperBase {
    */
   async performLoginWithData(
     email: string,
-    password: string,
-    optionText: string
+    password: string
   ) {
     await this.page.getByPlaceholder("Your email").fill(email);
     await this.page.getByPlaceholder("Your password").fill(password);
-    await this.waitForSeconds(5);
-    await this.page.getByRole("button", { name: optionText }).click();
+    await this.page.locator('.btnSubmit').click();
+  }
+
+  async registerYourAccountLink(){
+    await this.page.getByRole('link',{name: 'Register your account'}).click();
   }
 }
