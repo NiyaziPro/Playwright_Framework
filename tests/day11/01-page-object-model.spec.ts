@@ -51,5 +51,6 @@ test.describe("Page Object Model", () => {
 
     await pm.navigateTo().openSignInPage();
     await pm.signIn().performLogin();
+    await pm.signIn().waitForSeconds(3);
   });
 });
