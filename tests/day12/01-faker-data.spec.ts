@@ -56,20 +56,31 @@ test.describe("User Profil Data Test", () => {
 
     await pm.onRegisterPage().clickRegisterButton();
 
-    await expect(page.getByRole("heading", { name: "Login" })).toBeVisible();
-    //await pm.signIn().performLoginWithData(email, password);
-    
+    await pm.signIn().verifyPageHeader();
   });
 
   test("Faker Data Login Test", async ({ page }) => {
     const pm = new PageManager(page);
     await pm.navigateTo().openSignInPage();
     await pm.signIn().performLoginWithData(email, password);
-    await expect(page.locator("#menu")).toBeVisible();
-    await expect(page.locator("#menu")).toContainText(
-      firstName + " " + lastName
-    );
+    await pm.signIn().verifyWithProfileName(firstName, lastName);
   });
 
-  //test("Faker Data Profile Test", async ({ page }) => {});
+  test("Faker Data Profile Test", async ({ page }) => {
+    const pm = new PageManager(page);
+    await pm.navigateTo().openSignInPage();
+    await pm.signIn().performLoginWithData(email, password);
+
+    await pm.onMyAccountPage().clickOnProfileButton();
+    await pm.onProfilePage().verifyPageHeader();
+
+    await pm.onProfilePage().verifyFirstNameInputValue(firstName);
+    await pm.onProfilePage().verifyLastNameInputValue(lastName);
+    await pm.onProfilePage().verifyEmailInputValue(email);
+    await pm.onProfilePage().verifyPhoneInputValue(phone);
+    await pm.onProfilePage().verifyStreetInputValue(street);
+    await pm.onProfilePage().verifyPostalCodeInputValue(postalCode);
+    await pm.onProfilePage().verifyCityInputValue(city);
+    await pm.onProfilePage().verifyStateInputValue(state);
+  });
 });

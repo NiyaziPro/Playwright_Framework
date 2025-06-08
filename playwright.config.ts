@@ -12,7 +12,7 @@ import { defineConfig, devices } from "@playwright/test";
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  //timeout: 30000,
+  timeout: 30000,
   testDir: "./tests",
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -31,9 +31,10 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on',
+    testIdAttribute: "data-test",
     /*viewport: { width: 1280, height: 720 },
     actionTimeout: 0,
-    testIdAttribute: "data-test",
+    
      screenshot: 'on', 
      headless: false, // Ensure tests are run in non-headless mode
     browserName: 'chromium', // Or 'firefox' or 'webkit'// Capture screenshots */
