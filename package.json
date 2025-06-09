@@ -2,7 +2,14 @@
   "name": "playwright-framework",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "chrome": "npx playwright test --headed --project=chromium",
+    "firefox": "npx playwright test --headed --project=firefox",
+    "webkit": "npx playwright test --headed --project=webkit",
+    "smoke": "npx playwright test --headed --project=chromium --grep @smoke",
+    "regression": "npx playwright test --headed --project=chromium --grep @regression"
+
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
