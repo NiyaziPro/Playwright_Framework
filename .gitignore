@@ -7,3 +7,4 @@ node_modules/
 /playwright/.cache/
 push.sh
 .gitignore
+/screenshots
