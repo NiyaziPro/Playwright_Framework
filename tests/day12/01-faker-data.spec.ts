@@ -3,6 +3,7 @@ import { PageManager } from "../../page-objects/pageManager";
 import { faker, fakerDE, fakerTR } from "@faker-js/faker";
 
 test.describe("User Profil Data Test", () => {
+  test.describe.configure({ mode: "serial" });
   let firstName,
     lastName,
     dob,
