@@ -26,16 +26,16 @@ export default defineConfig({
   reporter: "html",
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    isMobile:true,
+    //isMobile: true,
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://127.0.0.1:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    trace: "on-first-retry",
     testIdAttribute: "data-test",
     video: {
-      mode: 'on-first-retry',
-      size: { width: 1920, height: 1080 }
+      mode: "on-first-retry",
+      size: { width: 1920, height: 1080 },
     },
     //viewport: { width: 100, height: 100 },
     /*actionTimeout: 0,
@@ -49,9 +49,14 @@ export default defineConfig({
   projects: [
     {
       name: "chromium",
-      use: { ...devices["Desktop Chrome"],
-        viewport:  { width: 1920, height: 1080 }
-       },
+      use: {
+        browserName: "chromium",
+        viewport: null,
+        headless:false,
+        launchOptions: {
+          args: ["--start-maximized"],
+        },
+      },
     },
 
     {
@@ -65,9 +70,9 @@ export default defineConfig({
     },
 
     {
-      name: 'mobile',
-      use: { ...devices['iPhone 14 Pro Max'] },
-    }
+      name: "mobile",
+      use: { ...devices["iPhone 14 Pro Max"] },
+    },
     /* Test against mobile viewports. */
     // {
     //   name: 'Mobile Chrome',
