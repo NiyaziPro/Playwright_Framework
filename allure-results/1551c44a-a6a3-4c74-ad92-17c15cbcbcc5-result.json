@@ -1,0 +1,167 @@
+{
+  "uuid": "1551c44a-a6a3-4c74-ad92-17c15cbcbcc5",
+  "name": "Test - 1",
+  "historyId": "2c601400b7e8731444a2c1a180359766:5bd835b0d6b1d4ada3b9f0db936e82c8",
+  "status": "passed",
+  "statusDetails": {},
+  "stage": "finished",
+  "steps": [
+    {
+      "status": "passed",
+      "statusDetails": {},
+      "stage": "finished",
+      "steps": [
+        {
+          "status": "passed",
+          "statusDetails": {},
+          "stage": "finished",
+          "steps": [
+            {
+              "status": "passed",
+              "statusDetails": {},
+              "stage": "finished",
+              "steps": [],
+              "attachments": [],
+              "parameters": [],
+              "name": "browserType.connect",
+              "start": 1749654664424,
+              "uuid": "a913c37f-06d0-4cca-a4d2-868095fe7748",
+              "stop": 1749654664666
+            }
+          ],
+          "attachments": [],
+          "parameters": [],
+          "name": "fixture: browser",
+          "start": 1749654664420,
+          "uuid": "d934918b-af99-43a6-a0e4-3b4cb1f65f25",
+          "stop": 1749654664666
+        },
+        {
+          "status": "passed",
+          "statusDetails": {},
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "name": "fixture: context",
+          "start": 1749654664668,
+          "uuid": "81517085-53ed-44e0-ba60-1a29fe10dbca",
+          "stop": 1749654664698
+        },
+        {
+          "status": "passed",
+          "statusDetails": {},
+          "stage": "finished",
+          "steps": [
+            {
+              "status": "passed",
+              "statusDetails": {},
+              "stage": "finished",
+              "steps": [],
+              "attachments": [],
+              "parameters": [],
+              "name": "browserContext.newPage",
+              "start": 1749654664701,
+              "uuid": "eaeb2893-9868-430f-a019-95d258959d96",
+              "stop": 1749654664854
+            }
+          ],
+          "attachments": [],
+          "parameters": [],
+          "name": "fixture: page",
+          "start": 1749654664698,
+          "uuid": "30ee5bfd-01c7-4217-a232-d64e354192b5",
+          "stop": 1749654664854
+        }
+      ],
+      "attachments": [],
+      "parameters": [],
+      "name": "Before Hooks",
+      "start": 1749654664412,
+      "uuid": "8405c083-5f36-4216-95cc-4e053a99f1dc",
+      "stop": 1749654664854
+    },
+    {
+      "status": "passed",
+      "statusDetails": {},
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1749654664860,
+      "name": "page.goto(https://www.practicesoftwaretesting.com)",
+      "uuid": "597af97e-8022-41ea-9851-0ab9183bfc35",
+      "stop": 1749654675647
+    },
+    {
+      "status": "passed",
+      "statusDetails": {},
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1749654675677,
+      "name": "locator.getByRole('link', { name: 'Sign in' }).click",
+      "uuid": "cadb5bbf-824f-41a5-8060-4fc712f42353",
+      "stop": 1749654675840
+    },
+    {
+      "status": "passed",
+      "statusDetails": {},
+      "stage": "finished",
+      "steps": [
+        {
+          "status": "passed",
+          "statusDetails": {},
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "name": "fixture: page",
+          "start": 1749654675843,
+          "uuid": "afed04ed-be87-46bb-b70e-009a49ca5cd1",
+          "stop": 1749654675843
+        },
+        {
+          "status": "passed",
+          "statusDetails": {},
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "name": "fixture: context",
+          "start": 1749654675844,
+          "uuid": "99a132da-149e-4940-9351-86e5bf2b54ec",
+          "stop": 1749654675858
+        }
+      ],
+      "attachments": [],
+      "parameters": [],
+      "name": "After Hooks",
+      "start": 1749654675841,
+      "uuid": "c3d8831f-fba3-442b-8435-a0f7c7d68e14",
+      "stop": 1749654675861
+    }
+  ],
+  "attachments": [],
+  "parameters": [{ "name": "Project", "value": "chromium" }],
+  "labels": [
+    { "name": "language", "value": "javascript" },
+    { "name": "framework", "value": "playwright" },
+    { "name": "package", "value": "day15.03-mobile-testing.spec.ts" },
+    {
+      "name": "titlePath",
+      "value": " > chromium > day15\\03-mobile-testing.spec.ts > Test Suite"
+    },
+    { "name": "host", "value": "NyzJunior" },
+    { "name": "thread", "value": "pid-7668-worker-0" },
+    { "name": "parentSuite", "value": "chromium" },
+    { "name": "suite", "value": "day15\\03-mobile-testing.spec.ts" },
+    { "name": "subSuite", "value": "Test Suite" }
+  ],
+  "links": [],
+  "start": 1749654664410,
+  "testCaseId": "2c601400b7e8731444a2c1a180359766",
+  "fullName": "day15/03-mobile-testing.spec.ts:5:7",
+  "stop": 1749654675604
+}

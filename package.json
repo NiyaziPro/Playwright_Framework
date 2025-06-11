@@ -8,14 +8,14 @@
     "webkit": "npx playwright test --headed --project=webkit",
     "smoke": "npx playwright test --headed --project=chromium --grep @smoke",
     "regression": "npx playwright test --headed --project=chromium --grep @regression"
-
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "@types/node": "^20.12.0"
+    "@types/node": "^20.12.0",
+    "allure-playwright": "^3.2.2"
   },
   "dependencies": {
     "@faker-js/faker": "^9.7.0",
