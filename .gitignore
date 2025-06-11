@@ -8,3 +8,5 @@ node_modules/
 push.sh
 .gitignore
 /screenshots
+/allure-report
+/allure-results
