@@ -1,0 +1,13 @@
+{
+    "firstName": "Jack",
+    "lastName": "Daniels",
+    "birthdate": "1900-01-01",
+    "email": "jdaniels@fake.com",
+    "phone": "9005555555",
+    "street1": "1 Main St.",
+    "street2": "Apartment A",
+    "city": "Anytown",
+    "stateProvince": "KS",
+    "postalCode": "12345",
+    "country": "Canada"
+}
