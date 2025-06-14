@@ -46,9 +46,7 @@ test("POST request - Pet Store", async ({ request }) => {
       name: "Dog",
     },
     name: "Lasi",
-    photoUrls: [
-      "https://www.google.com/url?sa=i&url=https%3A%2F%2Fmiau.bg%2Fn-58212-%25D0%259E%25D1%2582%25D0%25B3%25D0%25BB%25D0%25B5%25D0%25B6%25D0%25B4%25D0%25B0%25D0%25BD%25D0%25B5_%25D0%25BD%25D0%25B0_%25D0%25A1%25D0%25B0%25D0%25BC%25D0%25BE%25D0%25B5%25D0%25B4_%25D0%25B2%25D0%25BA%25D1%258A%25D1%2589%25D0%25B8&psig=AOvVaw17TsQZPn7mNsG1uWJ6msPK&ust=1749905322953000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCLD79Lq37o0DFQAAAAAdAAAAABAE",
-    ],
+    photoUrls: ["https://dxcgs7v732qty.cloudfront.net/kopekler.jpg"],
     tags: [
       {
         id: 1,
