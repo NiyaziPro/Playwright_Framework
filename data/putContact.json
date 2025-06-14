@@ -1,0 +1,13 @@
+{
+    "firstName": "Ali",
+    "lastName": "Can",
+    "birthdate": "1900-01-01",
+    "email": "alican@fake.com",
+    "phone": "9005555555",
+    "street1": "Buyukcekmece",
+    "street2": "Apartment A",
+    "city": "Istanbul",
+    "stateProvince": "KS",
+    "postalCode": "12345",
+    "country": "Turkiye"
+}
