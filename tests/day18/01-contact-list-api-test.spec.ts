@@ -125,7 +125,9 @@ test.describe("Contact List - API Test", () => {
         headers: { Authorization: "Bearer " + token },
       }
     );
-
+    const responseDataText = await response.text();
+    console.log(responseDataText);
     expect(response.status()).toBe(200);
+    expect(responseDataText).toEqual("Contact deleted");
   });
 });
