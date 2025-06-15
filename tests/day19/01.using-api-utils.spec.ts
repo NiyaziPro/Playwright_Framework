@@ -2,6 +2,7 @@ import { test, expect } from "@playwright/test";
 import postData from "../../data/postContact.json";
 import { getToken } from "../utils/api-utils/auth-service";
 import putData from "../../data/putContact.json";
+import patchData from "../../data/patchContact.json";
 import { makeRequest, verifyContact } from "../utils/api-utils/api-utils";
 import { skip } from "node:test";
 
@@ -31,7 +32,7 @@ test.describe("Contact List - API Test", () => {
     // Verify Status Code
     expect(response.status()).toBe(201);
     // Verify Response data
-    verifyContact(responseData,postData);
+    verifyContact(responseData, postData);
   });
   test("GET Contact with API - token", async ({ request }) => {
     const response = await makeRequest(
@@ -44,17 +45,11 @@ test.describe("Contact List - API Test", () => {
 
     responseData = await response.json();
     expect(response.status()).toBe(200);
-    verifyContact(responseData,postData);
+    verifyContact(responseData, postData);
   });
 
   test("GET Contact List with API - token", async ({ request }) => {
-   const response = await makeRequest(
-      request,
-      "get",
-      `${baseUrl}`,
-      {},
-      token
-    );
+    const response = await makeRequest(request, "get", `${baseUrl}`, {}, token);
     responseData = await response.json();
     expect(response.status()).toBe(200);
 
@@ -71,10 +66,10 @@ test.describe("Contact List - API Test", () => {
       putData,
       token
     );
-    
+
     responseData = await response.json();
     expect(response.status()).toBe(200);
-    verifyContact(responseData,putData);
+    verifyContact(responseData, putData);
   });
 
   test("PATCH Contact with API - token", async ({ request }) => {
@@ -82,11 +77,12 @@ test.describe("Contact List - API Test", () => {
       request,
       "patch",
       `${baseUrl}${contactId}`,
-      { firstName: "Maks", phone: "1234567890" },
+      patchData,
       token
     );
     responseData = await response.json();
     expect(response.status()).toBe(200);
+    verifyContact(responseData, { ...putData, ...patchData }); // -> SPREAD Operator <-
   });
 
   test("DELETE Contact with API - token", async ({ request }) => {
@@ -97,7 +93,7 @@ test.describe("Contact List - API Test", () => {
       {},
       token
     );
-    
+
     const responseDataText = await response.text();
     expect(response.status()).toBe(200);
     expect(responseDataText).toEqual("Contact deleted");
