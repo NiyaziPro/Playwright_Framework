@@ -15,4 +15,5 @@ test("Database Testing", async () => {
   // Verify
   expect(roomData.room_number).toBe(1);
   expect(roomData.room_type).toEqual("DELUXE");
+  expect(roomData.status).toBe(true);
 });
