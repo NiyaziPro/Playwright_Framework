@@ -12,3 +12,20 @@ export async function getToken() {
 
   return responseData.token;
 }
+
+export async function getTokenPST() {
+  const context = await request.newContext();
+
+  const response = await context.post(
+    "https://api.practicesoftwaretesting.com/users/login",
+    {
+      data: {
+        email: "admin@practicesoftwaretesting.com",
+        password: "welcome01",
+      },
+    }
+  );
+  const responseData = await response.json();
+
+  return responseData.access_token;
+}

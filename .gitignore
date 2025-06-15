@@ -11,3 +11,4 @@ push.sh
 allure-report
 allure-results
 data/credentials.json
+data/db.json
